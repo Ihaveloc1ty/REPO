@@ -1,0 +1,49 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SampleProjectS26
+{
+    internal class GameObject
+    {
+        // - Class Properties
+        public string Name { get; set; }
+        
+        public float Health { get; private set; }
+
+        public bool IsAlive {
+            get { return Health > 0; }            
+        }
+
+        // - Class Constructor
+        public GameObject(string name, float health)
+        {
+
+            Name = name;
+            Health = health;
+        }
+
+        // - Class Methodology
+
+        public void TakeDamage(float damage)
+        {
+            Health -= damage;
+            Console.WriteLine($"{Name} took {damage} damage.");
+
+
+            if (Health < 0)
+            {
+                Health = 0;
+                Console.WriteLine($"{Name} received fatal damage.");
+            } 
+
+            else
+            {
+                Console.WriteLine($"{Name} has {Health} remaining.");
+            }
+        }      
+
+    }
+}
